@@ -1,0 +1,36 @@
+{
+  "intent": {
+    "raw_failure_rows": 18,
+    "deduplicated_candidates": 18,
+    "issue_counts": {
+      "low_confidence": 12,
+      "ambiguous_top_classes": 11,
+      "keyword_mismatch": 8
+    }
+  },
+  "summary": {
+    "raw_failure_rows": 21,
+    "deduplicated_candidates": 21,
+    "issue_counts": {
+      "missing_customer_reference": 12,
+      "missing_agent_reference": 11,
+      "weak_agent_action": 6,
+      "low_agent_coverage": 5,
+      "redundant_summary": 5,
+      "too_long": 5,
+      "generic_agent_action": 4,
+      "too_short": 3,
+      "low_customer_coverage": 1
+    }
+  },
+  "reply": {
+    "raw_failure_rows": 59,
+    "deduplicated_candidates": 59,
+    "issue_counts": {
+      "missing_next_step": 56,
+      "uncertain_or_unhelpful": 39,
+      "repetition": 21,
+      "too_close_to_customer_wording": 11
+    }
+  }
+}

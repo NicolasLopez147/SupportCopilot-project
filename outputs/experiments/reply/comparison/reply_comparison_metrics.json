@@ -1,0 +1,30 @@
+{
+  "num_samples": 15,
+  "baseline": {
+    "bertscore_precision_mean": 0.871,
+    "bertscore_recall_mean": 0.8525,
+    "bertscore_f1_mean": 0.8615
+  },
+  "retrieval": {
+    "bertscore_precision_mean": 0.8678,
+    "bertscore_recall_mean": 0.8488,
+    "bertscore_f1_mean": 0.858
+  },
+  "lora": {
+    "bertscore_precision_mean": 0.8685,
+    "bertscore_recall_mean": 0.8569,
+    "bertscore_f1_mean": 0.8626
+  },
+  "comparison": {
+    "baseline_wins": 1,
+    "retrieval_wins": 2,
+    "lora_wins": 4,
+    "ties": 1,
+    "lora_feedback_wins": 7
+  },
+  "lora_feedback": {
+    "bertscore_precision_mean": 0.875,
+    "bertscore_recall_mean": 0.8676,
+    "bertscore_f1_mean": 0.8712
+  }
+}

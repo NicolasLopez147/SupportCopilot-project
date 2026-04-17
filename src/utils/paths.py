@@ -1,0 +1,17 @@
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+CONFIGS_DIR = PROJECT_ROOT / "configs"
+DATA_DIR = PROJECT_ROOT / "data"
+RAW_DATA_DIR = DATA_DIR / "raw"
+INTERIM_DATA_DIR = DATA_DIR / "interim"
+PROCESSED_DATA_DIR = DATA_DIR / "processed"
+OUTPUTS_DIR = PROJECT_ROOT / "outputs"
+
+EXPERIMENTS_OUTPUT_DIR = OUTPUTS_DIR / "experiments"
+COPILOT_OUTPUT_DIR = OUTPUTS_DIR / "copilot"
+
+FEEDBACK_DIR = DATA_DIR / "feedback"
+FEEDBACK_MEMORY_DIR = FEEDBACK_DIR / "memory"
+FEEDBACK_CANDIDATES_DIR = FEEDBACK_DIR / "candidates"
+FEEDBACK_AUGMENTED_DIR = FEEDBACK_DIR / "augmented"

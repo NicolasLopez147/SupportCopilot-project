@@ -1,0 +1,64 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Fichiers temporaires et archives locales
+temp/
+archive/
+*.log
+
+# Données lourdes ou reconstruites localement
+data/raw/
+data/interim/
+data/processed/
+
+# Rapports locaux générés automatiquement
+reports/figures/
+
+# Par défaut, on ignore toutes les sorties expérimentales et runtime
+outputs/**
+
+# On conserve uniquement les résultats légers utiles pour GitHub
+!outputs/experiments/
+outputs/experiments/**
+
+!outputs/experiments/comparison_overview.json
+
+!outputs/experiments/intent/
+outputs/experiments/intent/**
+!outputs/experiments/intent/embedding_baseline/
+!outputs/experiments/intent/embedding_baseline/metrics.json
+!outputs/experiments/intent/embedding_baseline/classification_report.json
+!outputs/experiments/intent/synthetic_embedding/
+!outputs/experiments/intent/synthetic_embedding/metrics.json
+!outputs/experiments/intent/synthetic_embedding/valid_classification_report.json
+!outputs/experiments/intent/synthetic_embedding/test_classification_report.json
+!outputs/experiments/intent/tfidf_baseline/
+!outputs/experiments/intent/tfidf_baseline/metrics.json
+!outputs/experiments/intent/tfidf_baseline/classification_report.json
+
+!outputs/experiments/summary/
+outputs/experiments/summary/**
+!outputs/experiments/summary/api_baseline/
+!outputs/experiments/summary/api_baseline/sample_test_input.json
+!outputs/experiments/summary/api_baseline/test_predictions.json
+!outputs/experiments/summary/api_baseline/summary_metrics.json
+!outputs/experiments/summary/api_baseline/summary_metrics_per_sample.json
+!outputs/experiments/summary/api_baseline/manual_review_template.csv
+!outputs/experiments/summary/comparison/
+!outputs/experiments/summary/comparison/summary_comparison_metrics.json
+!outputs/experiments/summary/comparison/summary_comparison_per_sample.json
+!outputs/experiments/summary/comparison/summary_manual_review_template.csv
+
+!outputs/experiments/reply/
+outputs/experiments/reply/**
+!outputs/experiments/reply/comparison/
+!outputs/experiments/reply/comparison/reply_comparison_metrics.json
+!outputs/experiments/reply/comparison/reply_comparison_per_sample.json
+!outputs/experiments/reply/comparison/reply_comparison_by_scenario.json
+!outputs/experiments/reply/comparison/reply_manual_review_template.csv
+
+# Sorties runtime du copilote : on les garde locales
+outputs/copilot/
+reports/tables/api.txt

@@ -1,0 +1,13 @@
+{
+  "bertscore": {
+    "precision_mean": 0.8711,
+    "recall_mean": 0.8813,
+    "f1_mean": 0.8761
+  },
+  "source_grounded_entailment": {
+    "source_support_mean": 0.6056,
+    "source_contradiction_mean": 0.3964
+  },
+  "num_samples": 10,
+  "num_entailment_samples": 5
+}

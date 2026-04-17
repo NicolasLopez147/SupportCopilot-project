@@ -1,0 +1,18 @@
+{
+  "num_samples": 15,
+  "lora": {
+    "bertscore_precision_mean": 0.944,
+    "bertscore_recall_mean": 0.9241,
+    "bertscore_f1_mean": 0.9335
+  },
+  "lora_feedback": {
+    "bertscore_precision_mean": 0.9494,
+    "bertscore_recall_mean": 0.9462,
+    "bertscore_f1_mean": 0.9475
+  },
+  "comparison": {
+    "lora_wins": 4,
+    "lora_feedback_wins": 10,
+    "ties": 1
+  }
+}

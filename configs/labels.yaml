@@ -1,0 +1,12 @@
+intent_labels:
+  - internet_outage
+  - slow_connection
+  - router_setup
+  - device_or_wifi_issue
+  - billing_issue
+  - appointment_request
+  - ticket_followup
+  - account_access
+  - cancellation_request
+  - information_request
+  - other

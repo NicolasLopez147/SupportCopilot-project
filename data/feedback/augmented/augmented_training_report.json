@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "base_rows": 85,
+    "candidate_rows": 18,
+    "augmented_rows": 89,
+    "replaced_rows": 14,
+    "appended_rows": 4
+  },
+  "summary": {
+    "candidate_rows": 21,
+    "support_batch_rows": 21
+  },
+  "reply": {
+    "base_rows": 85,
+    "candidate_rows": 59,
+    "augmented_rows": 100,
+    "replaced_rows": 44,
+    "appended_rows": 15
+  }
+}

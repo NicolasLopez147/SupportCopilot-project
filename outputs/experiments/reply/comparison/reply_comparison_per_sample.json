@@ -1,0 +1,708 @@
+[
+  {
+    "conversation_id": "billing_vs_technical_routing_014",
+    "scenario": "billing_vs_technical_routing",
+    "reference_reply": "I will continue by checking on your previous interactions to ensure we're routing this correctly. Can you confirm which representative told you that the issue with freezing speeds was related to your billing?",
+    "baseline_reply": "I'm not sure if it's a bill question or if it's a bill question.",
+    "retrieval_reply": "I'm not sure who to ask for help. I'm not sure who to ask for help.",
+    "lora_reply": "I'm not sure if I'll be able to help you with the problem, but I'm not sure if I'll be able to help you with it.",
+    "baseline_bertscore_precision": 0.8512,
+    "baseline_bertscore_recall": 0.8463,
+    "baseline_bertscore_f1": 0.8487,
+    "retrieval_bertscore_precision": 0.8432,
+    "retrieval_bertscore_recall": 0.8322,
+    "retrieval_bertscore_f1": 0.8376,
+    "lora_bertscore_precision": 0.8493,
+    "lora_bertscore_recall": 0.8445,
+    "lora_bertscore_f1": 0.8469,
+    "best_methods": [
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.56,
+        "chunk_id": "slow_connection_diagnosis_chunk_04",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Recommended Agent Action\n- Distinguish between a local Wi-Fi issue and a broader line issue.\n- If the slowdown affects all devices, check outage and line status first.\n- If the slowdown is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue persists with no outage detected, create a technical diagnostic request."
+      },
+      {
+        "rank": 2,
+        "score": 0.5314,
+        "chunk_id": "billing_vs_technical_routing_chunk_06",
+        "doc_id": "billing_vs_technical_routing",
+        "text": "## Suggested Reply\nI want to make sure this is handled by the right team. If the main issue is related to pricing, billing, or your package, I’ll route this to billing support. If the main issue is about service quality or connectivity, I’ll continue with technical troubleshooting first."
+      },
+      {
+        "rank": 3,
+        "score": 0.5214,
+        "chunk_id": "slow_connection_diagnosis_chunk_03",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Diagnosis\n1. Ask whether the slowdown affects Wi-Fi only or both Wi-Fi and wired devices.\n2. Ask whether the problem is constant or only happens at certain times of day.\n3. Confirm whether the customer restarted the router recently.\n4. Check for known incidents, maintenance, or congestion in the area.\n5. If possible, ask for a quick speed test result."
+      }
+    ],
+    "lora_feedback_reply": "I'd like to make sure that you get the right support for your slow internet speeds or if it's a bill question.",
+    "lora_feedback_bertscore_precision": 0.8755,
+    "lora_feedback_bertscore_recall": 0.8646,
+    "lora_feedback_bertscore_f1": 0.8701
+  },
+  {
+    "conversation_id": "billing_vs_technical_routing_015",
+    "scenario": "billing_vs_technical_routing",
+    "reference_reply": "We'll need to prioritize a technical check to understand what's causing your slow speeds. Once we resolve that, we can review your invoice for any pricing errors or discrepancies.",
+    "baseline_reply": "I'm sorry, but I'm not sure if it's a mistake or if it's a mistake.",
+    "retrieval_reply": "I think it's a mistake. I've had it slow before, but now my bill says $50 more than usual.",
+    "lora_reply": "I'd like to see if you can help me figure out what's going on with your bill.",
+    "baseline_bertscore_precision": 0.8564,
+    "baseline_bertscore_recall": 0.8497,
+    "baseline_bertscore_f1": 0.853,
+    "retrieval_bertscore_precision": 0.8718,
+    "retrieval_bertscore_recall": 0.8607,
+    "retrieval_bertscore_f1": 0.8662,
+    "lora_bertscore_precision": 0.885,
+    "lora_bertscore_recall": 0.8662,
+    "lora_bertscore_f1": 0.8755,
+    "best_methods": [
+      "lora",
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.5231,
+        "chunk_id": "slow_connection_diagnosis_chunk_04",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Recommended Agent Action\n- Distinguish between a local Wi-Fi issue and a broader line issue.\n- If the slowdown affects all devices, check outage and line status first.\n- If the slowdown is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue persists with no outage detected, create a technical diagnostic request."
+      },
+      {
+        "rank": 2,
+        "score": 0.5065,
+        "chunk_id": "slow_connection_diagnosis_chunk_01",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Issue\nCustomer reports that the internet connection is available but significantly slower than expected."
+      },
+      {
+        "rank": 3,
+        "score": 0.4881,
+        "chunk_id": "slow_connection_diagnosis_chunk_03",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Diagnosis\n1. Ask whether the slowdown affects Wi-Fi only or both Wi-Fi and wired devices.\n2. Ask whether the problem is constant or only happens at certain times of day.\n3. Confirm whether the customer restarted the router recently.\n4. Check for known incidents, maintenance, or congestion in the area.\n5. If possible, ask for a quick speed test result."
+      }
+    ],
+    "lora_feedback_reply": "I'd like to see if you can help me figure out what's going on with your bill.",
+    "lora_feedback_bertscore_precision": 0.885,
+    "lora_feedback_bertscore_recall": 0.8662,
+    "lora_feedback_bertscore_f1": 0.8755
+  },
+  {
+    "conversation_id": "fiber_box_red_light_014",
+    "scenario": "fiber_box_red_light",
+    "reference_reply": "I can investigate this for you and provide updates on any potential issues that may be causing the red light. If I find a local outage, we will need to schedule a technical intervention.",
+    "baseline_reply": "Is there a local outage in your area?",
+    "retrieval_reply": "Diagnosis 1. Confirm whether the red light is stable or blinking. 2. Ask whether the customer already restarted both the fiber box and the router. 3. Check whether there is a known outage affecting the customer area. 4. If no outage is reported, suspect a line issue or hardware fault.",
+    "lora_reply": "I will try to find out if there is an outage in your area or if there is an outage in your area.",
+    "baseline_bertscore_precision": 0.9023,
+    "baseline_bertscore_recall": 0.8534,
+    "baseline_bertscore_f1": 0.8772,
+    "retrieval_bertscore_precision": 0.8542,
+    "retrieval_bertscore_recall": 0.867,
+    "retrieval_bertscore_f1": 0.8606,
+    "lora_bertscore_precision": 0.8729,
+    "lora_bertscore_recall": 0.8636,
+    "lora_bertscore_f1": 0.8682,
+    "best_methods": [
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.8469,
+        "chunk_id": "fiber_box_red_light_chunk_06",
+        "doc_id": "fiber_box_red_light",
+        "text": "## Suggested Reply\nThank you for the details. Since the fiber box is showing a red light and the equipment has already been restarted, I will first check whether there is a local outage affecting your area. If not, the next step will be to open a technical intervention request."
+      },
+      {
+        "rank": 2,
+        "score": 0.8345,
+        "chunk_id": "fiber_box_red_light_chunk_03",
+        "doc_id": "fiber_box_red_light",
+        "text": "## Diagnosis\n1. Confirm whether the red light is stable or blinking.\n2. Ask whether the customer already restarted both the fiber box and the router.\n3. Check whether there is a known outage affecting the customer area.\n4. If no outage is reported, suspect a line issue or hardware fault."
+      },
+      {
+        "rank": 3,
+        "score": 0.7394,
+        "chunk_id": "fiber_box_red_light_chunk_01",
+        "doc_id": "fiber_box_red_light",
+        "text": "## Issue\nCustomer reports that the fiber box shows a red light and internet access is unavailable."
+      }
+    ],
+    "lora_feedback_reply": "I will try to find out if there is a local outage in your area.",
+    "lora_feedback_bertscore_precision": 0.902,
+    "lora_feedback_bertscore_recall": 0.8685,
+    "lora_feedback_bertscore_f1": 0.8849
+  },
+  {
+    "conversation_id": "fiber_box_red_light_015",
+    "scenario": "fiber_box_red_light",
+    "reference_reply": "I will continue by checking if there's a known outage affecting your area. If not, we'll need to open a technical intervention request.",
+    "baseline_reply": "Sorry to hear that. I've restarted both the box and the router and it's been out for hours and I'm really frustrated.",
+    "retrieval_reply": "Sorry to hear that. I've restarted both the box and the router and it's been out for hours.",
+    "lora_reply": "I've tried restarting both the box and the router, but it's not working. It's been out for hours and I'm frustrated.",
+    "baseline_bertscore_precision": 0.8594,
+    "baseline_bertscore_recall": 0.857,
+    "baseline_bertscore_f1": 0.8582,
+    "retrieval_bertscore_precision": 0.864,
+    "retrieval_bertscore_recall": 0.8586,
+    "retrieval_bertscore_f1": 0.8613,
+    "lora_bertscore_precision": 0.8651,
+    "lora_bertscore_recall": 0.8636,
+    "lora_bertscore_f1": 0.8644,
+    "best_methods": [
+      "lora"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.8361,
+        "chunk_id": "fiber_box_red_light_chunk_03",
+        "doc_id": "fiber_box_red_light",
+        "text": "## Diagnosis\n1. Confirm whether the red light is stable or blinking.\n2. Ask whether the customer already restarted both the fiber box and the router.\n3. Check whether there is a known outage affecting the customer area.\n4. If no outage is reported, suspect a line issue or hardware fault."
+      },
+      {
+        "rank": 2,
+        "score": 0.7788,
+        "chunk_id": "fiber_box_red_light_chunk_02",
+        "doc_id": "fiber_box_red_light",
+        "text": "## Symptoms\n- Red light on the fiber box\n- No internet access\n- Router restart may already have been attempted\n- Connection may have stopped suddenly"
+      },
+      {
+        "rank": 3,
+        "score": 0.7767,
+        "chunk_id": "fiber_box_red_light_chunk_06",
+        "doc_id": "fiber_box_red_light",
+        "text": "## Suggested Reply\nThank you for the details. Since the fiber box is showing a red light and the equipment has already been restarted, I will first check whether there is a local outage affecting your area. If not, the next step will be to open a technical intervention request."
+      }
+    ],
+    "lora_feedback_reply": "I've tried restarting both the box and the router and restarting them like five times now. It's been out for hours and I'm really frustrated.",
+    "lora_feedback_bertscore_precision": 0.8457,
+    "lora_feedback_bertscore_recall": 0.8574,
+    "lora_feedback_bertscore_f1": 0.8515
+  },
+  {
+    "conversation_id": "identity_verification_015",
+    "scenario": "identity_verification",
+    "reference_reply": "Please click on the link provided in my previous message to access the secure private channel. I'll be happy to guide you through the verification process once you're there.",
+    "baseline_reply": "I'm using a secure private channel to verify my identity.",
+    "retrieval_reply": "Is there anything else I can help you with?",
+    "lora_reply": "I'm using a secure private channel to verify your identity. I'll be able to access the secure private channel to verify your identity.",
+    "baseline_bertscore_precision": 0.9308,
+    "baseline_bertscore_recall": 0.8799,
+    "baseline_bertscore_f1": 0.9047,
+    "retrieval_bertscore_precision": 0.8514,
+    "retrieval_bertscore_recall": 0.8459,
+    "retrieval_bertscore_f1": 0.8487,
+    "lora_bertscore_precision": 0.9122,
+    "lora_bertscore_recall": 0.8797,
+    "lora_bertscore_f1": 0.8957,
+    "best_methods": [
+      "baseline"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.6894,
+        "chunk_id": "identity_verification_chunk_06",
+        "doc_id": "identity_verification",
+        "text": "## Suggested Reply\nFor account-specific assistance, I’ll need to continue through a secure private channel so we can complete verification safely. Once your identity is confirmed, we can proceed with the requested account update."
+      },
+      {
+        "rank": 2,
+        "score": 0.6617,
+        "chunk_id": "identity_verification_chunk_04",
+        "doc_id": "identity_verification",
+        "text": "## Recommended Agent Action\n- Ask the customer to continue through a secure or private support channel.\n- Verify identity before discussing sensitive details or changing account information.\n- If verification cannot be completed, explain that the request cannot proceed yet."
+      },
+      {
+        "rank": 3,
+        "score": 0.5252,
+        "chunk_id": "identity_verification_chunk_01",
+        "doc_id": "identity_verification",
+        "text": "## Issue\nCustomer requests account-specific assistance and identity verification is required before account changes or detailed support actions."
+      }
+    ],
+    "lora_feedback_reply": "I'm using a secure private channel to verify your identity. If you have any questions, please let me know.",
+    "lora_feedback_bertscore_precision": 0.9047,
+    "lora_feedback_bertscore_recall": 0.8858,
+    "lora_feedback_bertscore_f1": 0.8952
+  },
+  {
+    "conversation_id": "local_outage_check_014",
+    "scenario": "local_outage_check",
+    "reference_reply": "I'll continue by checking whether there is an open outage or maintenance event in your area and verify the time when the service interruption started.",
+    "baseline_reply": "I'm not sure if it made a difference or if it made a difference.",
+    "retrieval_reply": "I've tried restarting my router earlier this morning, but I'm not sure if it made a difference.",
+    "lora_reply": "I'm not sure if it made a difference or if it made a difference.",
+    "baseline_bertscore_precision": 0.8588,
+    "baseline_bertscore_recall": 0.8456,
+    "baseline_bertscore_f1": 0.8521,
+    "retrieval_bertscore_precision": 0.862,
+    "retrieval_bertscore_recall": 0.8522,
+    "retrieval_bertscore_f1": 0.8571,
+    "lora_bertscore_precision": 0.8588,
+    "lora_bertscore_recall": 0.8456,
+    "lora_bertscore_f1": 0.8521,
+    "best_methods": [
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.6883,
+        "chunk_id": "local_outage_check_chunk_02",
+        "doc_id": "local_outage_check",
+        "text": "## Symptoms\n- No internet access\n- Multiple customers in the same area may be affected\n- Service interruption started suddenly\n- Equipment restart did not restore service"
+      },
+      {
+        "rank": 2,
+        "score": 0.6726,
+        "chunk_id": "wifi_instability_chunk_04",
+        "doc_id": "wifi_instability",
+        "text": "## Recommended Agent Action\n- Distinguish Wi-Fi instability from a wider service outage.\n- If the issue is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue affects all connection types, continue with outage and line diagnosis."
+      },
+      {
+        "rank": 3,
+        "score": 0.6584,
+        "chunk_id": "slow_connection_diagnosis_chunk_04",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Recommended Agent Action\n- Distinguish between a local Wi-Fi issue and a broader line issue.\n- If the slowdown affects all devices, check outage and line status first.\n- If the slowdown is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue persists with no outage detected, create a technical diagnostic request."
+      }
+    ],
+    "lora_feedback_reply": "I've tried restarting my router a bit earlier, but I'm not sure if it made a difference.",
+    "lora_feedback_bertscore_precision": 0.8655,
+    "lora_feedback_bertscore_recall": 0.8508,
+    "lora_feedback_bertscore_f1": 0.8581
+  },
+  {
+    "conversation_id": "local_outage_check_015",
+    "scenario": "local_outage_check",
+    "reference_reply": "We'll need to check whether there is an open outage currently affecting your area and verify the time when the service interruption started.",
+    "baseline_reply": "Sorry to hear that, but I'm not sure if you have any problems with your internet connection.",
+    "retrieval_reply": "Service interruption started suddenly. It stopped working a few hours ago.",
+    "lora_reply": "I'm sorry to hear that you're experiencing issues with your internet connection. I'm sorry to hear that you're experiencing issues with your internet connection. I'm sorry to hear that you're experiencing issues with your internet connection. I'm sorry to hear that you're experiencing issues with your internet connection.",
+    "baseline_bertscore_precision": 0.8689,
+    "baseline_bertscore_recall": 0.8616,
+    "baseline_bertscore_f1": 0.8652,
+    "retrieval_bertscore_precision": 0.8998,
+    "retrieval_bertscore_recall": 0.8577,
+    "retrieval_bertscore_f1": 0.8783,
+    "lora_bertscore_precision": 0.8267,
+    "lora_bertscore_recall": 0.8384,
+    "lora_bertscore_f1": 0.8325,
+    "best_methods": [
+      "retrieval"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.7032,
+        "chunk_id": "wifi_instability_chunk_04",
+        "doc_id": "wifi_instability",
+        "text": "## Recommended Agent Action\n- Distinguish Wi-Fi instability from a wider service outage.\n- If the issue is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue affects all connection types, continue with outage and line diagnosis."
+      },
+      {
+        "rank": 2,
+        "score": 0.6518,
+        "chunk_id": "router_restart_procedure_chunk_04",
+        "doc_id": "router_restart_procedure",
+        "text": "## Recommended Agent Action\n- Use router restart as an early troubleshooting step for general connectivity issues.\n- Confirm whether the problem is resolved after reboot.\n- If the issue persists, continue with line diagnosis or outage checks."
+      },
+      {
+        "rank": 3,
+        "score": 0.6402,
+        "chunk_id": "local_outage_check_chunk_02",
+        "doc_id": "local_outage_check",
+        "text": "## Symptoms\n- No internet access\n- Multiple customers in the same area may be affected\n- Service interruption started suddenly\n- Equipment restart did not restore service"
+      }
+    ],
+    "lora_feedback_reply": "I'm sorry to hear that you're experiencing issues with your internet connection. I'm sorry to hear that you're experiencing issues with your internet connection. It just stopped working a few hours ago.",
+    "lora_feedback_bertscore_precision": 0.8542,
+    "lora_feedback_bertscore_recall": 0.8566,
+    "lora_feedback_bertscore_f1": 0.8554
+  },
+  {
+    "conversation_id": "router_restart_procedure_014",
+    "scenario": "router_restart_procedure",
+    "reference_reply": "I will continue by checking if there are any specific settings or configurations that could be contributing to the issue. Can you please check your router's basic settings and let me know what they currently look like?",
+    "baseline_reply": "No, I'm not. I'm just trying to fix it.",
+    "retrieval_reply": "No, it's not.",
+    "lora_reply": "I'm not sure if this is a problem with your router, or if it's a problem with your router.",
+    "baseline_bertscore_precision": 0.8736,
+    "baseline_bertscore_recall": 0.8359,
+    "baseline_bertscore_f1": 0.8543,
+    "retrieval_bertscore_precision": 0.8888,
+    "retrieval_bertscore_recall": 0.823,
+    "retrieval_bertscore_f1": 0.8546,
+    "lora_bertscore_precision": 0.8862,
+    "lora_bertscore_recall": 0.8568,
+    "lora_bertscore_f1": 0.8712,
+    "best_methods": [
+      "lora"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.7018,
+        "chunk_id": "router_restart_procedure_chunk_03",
+        "doc_id": "router_restart_procedure",
+        "text": "## Diagnosis\n1. Ask whether the customer already restarted the router.\n2. If not, ask the customer to power off the router completely.\n3. Wait at least 30 seconds before turning it back on.\n4. Allow a few minutes for the connection to stabilize after reboot."
+      },
+      {
+        "rank": 2,
+        "score": 0.6066,
+        "chunk_id": "router_restart_procedure_chunk_01",
+        "doc_id": "router_restart_procedure",
+        "text": "## Issue\nCustomer is experiencing connectivity issues and basic troubleshooting should begin with a router restart."
+      },
+      {
+        "rank": 3,
+        "score": 0.602,
+        "chunk_id": "router_restart_procedure_chunk_02",
+        "doc_id": "router_restart_procedure",
+        "text": "## Symptoms\n- No internet connection\n- Intermittent connection\n- Some devices cannot connect\n- Router may appear responsive but service remains unstable"
+      }
+    ],
+    "lora_feedback_reply": "I'm not sure if this is a problem with your router or if it is a problem with your router. I'm not sure if this is a problem with your router.",
+    "lora_feedback_bertscore_precision": 0.8697,
+    "lora_feedback_bertscore_recall": 0.8473,
+    "lora_feedback_bertscore_f1": 0.8583
+  },
+  {
+    "conversation_id": "router_restart_procedure_015",
+    "scenario": "router_restart_procedure",
+    "reference_reply": "The next step is to power off the router completely, wait at least 30 seconds, and then turn it back on. Once the connection has stabilized, let me know whether the problem is resolved or still ongoing.",
+    "baseline_reply": "I'm sorry to hear that, but I'm not sure if I'll be able to connect to anything.",
+    "retrieval_reply": "Sorry to hear that you're having issues with your internet connection.",
+    "lora_reply": "I'm sorry to hear that you're having issues with your internet connection. I'm sorry to hear that you're having issues with your connection. I'm sorry to hear that you're having issues with your internet connection.",
+    "baseline_bertscore_precision": 0.8596,
+    "baseline_bertscore_recall": 0.8352,
+    "baseline_bertscore_f1": 0.8472,
+    "retrieval_bertscore_precision": 0.8821,
+    "retrieval_bertscore_recall": 0.8398,
+    "retrieval_bertscore_f1": 0.8605,
+    "lora_bertscore_precision": 0.8379,
+    "lora_bertscore_recall": 0.8238,
+    "lora_bertscore_f1": 0.8308,
+    "best_methods": [
+      "retrieval"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.6798,
+        "chunk_id": "router_restart_procedure_chunk_01",
+        "doc_id": "router_restart_procedure",
+        "text": "## Issue\nCustomer is experiencing connectivity issues and basic troubleshooting should begin with a router restart."
+      },
+      {
+        "rank": 2,
+        "score": 0.6775,
+        "chunk_id": "router_restart_procedure_chunk_04",
+        "doc_id": "router_restart_procedure",
+        "text": "## Recommended Agent Action\n- Use router restart as an early troubleshooting step for general connectivity issues.\n- Confirm whether the problem is resolved after reboot.\n- If the issue persists, continue with line diagnosis or outage checks."
+      },
+      {
+        "rank": 3,
+        "score": 0.6388,
+        "chunk_id": "router_restart_procedure_chunk_02",
+        "doc_id": "router_restart_procedure",
+        "text": "## Symptoms\n- No internet connection\n- Intermittent connection\n- Some devices cannot connect\n- Router may appear responsive but service remains unstable"
+      }
+    ],
+    "lora_feedback_reply": "I'm sorry to hear that you're experiencing problems with your internet connection. I'm sorry to hear that you're experiencing connectivity issues. I'm sorry to hear that you're experiencing connectivity issues.",
+    "lora_feedback_bertscore_precision": 0.8382,
+    "lora_feedback_bertscore_recall": 0.8263,
+    "lora_feedback_bertscore_f1": 0.8322
+  },
+  {
+    "conversation_id": "slow_connection_diagnosis_014",
+    "scenario": "slow_connection_diagnosis",
+    "reference_reply": "I will continue by checking for known incidents or maintenance in your area that could be affecting your Wi-Fi speeds. Can you please confirm whether you've restarted your router recently?",
+    "baseline_reply": "I'm sorry to hear that you're experiencing slow speeds. I'm sorry to hear that. I'm sorry to hear that you're experiencing slow speeds.",
+    "retrieval_reply": "I'm sorry to hear that you're experiencing slow speeds. I'm sorry to hear that you're experiencing slow speeds.",
+    "lora_reply": "I'm sorry to hear that you're experiencing slow speeds. I've been doing some work from home lately and my connection has been pretty slow.",
+    "baseline_bertscore_precision": 0.8482,
+    "baseline_bertscore_recall": 0.8351,
+    "baseline_bertscore_f1": 0.8416,
+    "retrieval_bertscore_precision": 0.8585,
+    "retrieval_bertscore_recall": 0.839,
+    "retrieval_bertscore_f1": 0.8486,
+    "lora_bertscore_precision": 0.8756,
+    "lora_bertscore_recall": 0.8601,
+    "lora_bertscore_f1": 0.8678,
+    "best_methods": [
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.6979,
+        "chunk_id": "slow_connection_diagnosis_chunk_06",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Suggested Reply\nThanks for the information. I’d like to confirm whether the slowdown affects all devices or only Wi-Fi, and whether you already restarted the router. I will also check whether there is a known issue affecting your area before deciding whether deeper technical diagnostics are needed."
+      },
+      {
+        "rank": 2,
+        "score": 0.6322,
+        "chunk_id": "slow_connection_diagnosis_chunk_04",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Recommended Agent Action\n- Distinguish between a local Wi-Fi issue and a broader line issue.\n- If the slowdown affects all devices, check outage and line status first.\n- If the slowdown is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue persists with no outage detected, create a technical diagnostic request."
+      },
+      {
+        "rank": 3,
+        "score": 0.6261,
+        "chunk_id": "slow_connection_diagnosis_chunk_03",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Diagnosis\n1. Ask whether the slowdown affects Wi-Fi only or both Wi-Fi and wired devices.\n2. Ask whether the problem is constant or only happens at certain times of day.\n3. Confirm whether the customer restarted the router recently.\n4. Check for known incidents, maintenance, or congestion in the area.\n5. If possible, ask for a quick speed test result."
+      }
+    ],
+    "lora_feedback_reply": "I'm sorry to hear that you're experiencing slow speeds. I've tried closing some apps, but it didn't make a difference.",
+    "lora_feedback_bertscore_precision": 0.8821,
+    "lora_feedback_bertscore_recall": 0.8632,
+    "lora_feedback_bertscore_f1": 0.8726
+  },
+  {
+    "conversation_id": "slow_connection_diagnosis_015",
+    "scenario": "slow_connection_diagnosis",
+    "reference_reply": "I will continue by checking if there is a known issue in your area that might be affecting your connection. We will need to investigate further to determine the cause of the slowdown.",
+    "baseline_reply": "I'm sorry to hear that. I'm sorry to hear that. I'm sorry to hear that. I'm sorry to hear that.",
+    "retrieval_reply": "Wi-Fi only and wired devices.",
+    "lora_reply": "I'm sorry to hear that, but I'm not sure if the slowdown affects Wi-Fi or also your wired devices.",
+    "baseline_bertscore_precision": 0.845,
+    "baseline_bertscore_recall": 0.8393,
+    "baseline_bertscore_f1": 0.8421,
+    "retrieval_bertscore_precision": 0.8736,
+    "retrieval_bertscore_recall": 0.8455,
+    "retrieval_bertscore_f1": 0.8593,
+    "lora_bertscore_precision": 0.877,
+    "lora_bertscore_recall": 0.8816,
+    "lora_bertscore_f1": 0.8793,
+    "best_methods": [
+      "lora"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.7344,
+        "chunk_id": "slow_connection_diagnosis_chunk_06",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Suggested Reply\nThanks for the information. I’d like to confirm whether the slowdown affects all devices or only Wi-Fi, and whether you already restarted the router. I will also check whether there is a known issue affecting your area before deciding whether deeper technical diagnostics are needed."
+      },
+      {
+        "rank": 2,
+        "score": 0.6663,
+        "chunk_id": "slow_connection_diagnosis_chunk_03",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Diagnosis\n1. Ask whether the slowdown affects Wi-Fi only or both Wi-Fi and wired devices.\n2. Ask whether the problem is constant or only happens at certain times of day.\n3. Confirm whether the customer restarted the router recently.\n4. Check for known incidents, maintenance, or congestion in the area.\n5. If possible, ask for a quick speed test result."
+      },
+      {
+        "rank": 3,
+        "score": 0.6076,
+        "chunk_id": "slow_connection_diagnosis_chunk_04",
+        "doc_id": "slow_connection_diagnosis",
+        "text": "## Recommended Agent Action\n- Distinguish between a local Wi-Fi issue and a broader line issue.\n- If the slowdown affects all devices, check outage and line status first.\n- If the slowdown is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue persists with no outage detected, create a technical diagnostic request."
+      }
+    ],
+    "lora_feedback_reply": "I'd like to know if the slowdown only affects Wi-Fi or also your wired devices. If so, I'd like to know if the slowdown only affects your wired devices.",
+    "lora_feedback_bertscore_precision": 0.8754,
+    "lora_feedback_bertscore_recall": 0.881,
+    "lora_feedback_bertscore_f1": 0.8782
+  },
+  {
+    "conversation_id": "technical_intervention_request_014",
+    "scenario": "technical_intervention_request",
+    "reference_reply": "I will open the technical intervention request and follow up on its status. Please expect a call or message from our team within the next 24-48 hours.",
+    "baseline_reply": "I'm sorry for the inconvenience. I'm sorry for the inconvenience. I'm sorry for the inconvenience.",
+    "retrieval_reply": "I'm sorry for the inconvenience. I'm sorry for the inconvenience. I'm sorry for the inconvenience.",
+    "lora_reply": "I'm sorry for the inconvenience, but I'm sorry for the inconvenience. I'm sorry for the inconvenience, but I'm sorry for the inconvenience.",
+    "baseline_bertscore_precision": 0.8549,
+    "baseline_bertscore_recall": 0.8315,
+    "baseline_bertscore_f1": 0.8431,
+    "retrieval_bertscore_precision": 0.8549,
+    "retrieval_bertscore_recall": 0.8315,
+    "retrieval_bertscore_f1": 0.8431,
+    "lora_bertscore_precision": 0.8371,
+    "lora_bertscore_recall": 0.8343,
+    "lora_bertscore_f1": 0.8357,
+    "best_methods": [
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.6674,
+        "chunk_id": "technical_intervention_request_chunk_04",
+        "doc_id": "technical_intervention_request",
+        "text": "## Recommended Agent Action\n- Summarize the issue clearly in the ticket.\n- List all troubleshooting steps already attempted.\n- Open a technical intervention request or escalate to advanced support.\n- Inform the customer of the next step and expected follow-up process."
+      },
+      {
+        "rank": 2,
+        "score": 0.5889,
+        "chunk_id": "local_outage_check_chunk_04",
+        "doc_id": "local_outage_check",
+        "text": "## Recommended Agent Action\n- Inform the customer if a local outage is already identified.\n- Avoid unnecessary troubleshooting if the outage clearly explains the issue.\n- If no outage is found, continue with standard technical diagnosis."
+      },
+      {
+        "rank": 3,
+        "score": 0.5313,
+        "chunk_id": "technical_intervention_request_chunk_01",
+        "doc_id": "technical_intervention_request",
+        "text": "## Issue\nCustomer issue cannot be resolved through standard troubleshooting and requires escalation to a technician or advanced support team."
+      }
+    ],
+    "lora_feedback_reply": "I'm sorry for the inconvenience, but I'm not sure if I did everything correctly. I will continue by opening a technical intervention request to further investigate the issue and potentially schedule an intervention with a technician.",
+    "lora_feedback_bertscore_precision": 0.8783,
+    "lora_feedback_bertscore_recall": 0.8792,
+    "lora_feedback_bertscore_f1": 0.8788
+  },
+  {
+    "conversation_id": "technical_intervention_request_015",
+    "scenario": "technical_intervention_request",
+    "reference_reply": "I will continue by providing you with a unique case reference number for your technical intervention request. This will be shared with our advanced support team who will investigate and attempt to resolve the issue as soon as possible.",
+    "baseline_reply": "Thank you for your patience. I've tried restarting multiple times, but it's still down.",
+    "retrieval_reply": "Thank you for your patience.",
+    "lora_reply": "I've tried restarting multiple times, but it's still down. I've tried restarting multiple times, but it's still down.",
+    "baseline_bertscore_precision": 0.8786,
+    "baseline_bertscore_recall": 0.8458,
+    "baseline_bertscore_f1": 0.8619,
+    "retrieval_bertscore_precision": 0.895,
+    "retrieval_bertscore_recall": 0.8365,
+    "retrieval_bertscore_f1": 0.8648,
+    "lora_bertscore_precision": 0.8432,
+    "lora_bertscore_recall": 0.8372,
+    "lora_bertscore_f1": 0.8402,
+    "best_methods": [
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.6411,
+        "chunk_id": "technical_intervention_request_chunk_03",
+        "doc_id": "technical_intervention_request",
+        "text": "## Diagnosis\n1. Confirm the troubleshooting already completed with the customer.\n2. Verify whether a local outage has been ruled out.\n3. Check whether the issue is persistent rather than intermittent.\n4. Confirm contact details and customer availability if an intervention is needed."
+      },
+      {
+        "rank": 2,
+        "score": 0.6174,
+        "chunk_id": "technical_intervention_request_chunk_04",
+        "doc_id": "technical_intervention_request",
+        "text": "## Recommended Agent Action\n- Summarize the issue clearly in the ticket.\n- List all troubleshooting steps already attempted.\n- Open a technical intervention request or escalate to advanced support.\n- Inform the customer of the next step and expected follow-up process."
+      },
+      {
+        "rank": 3,
+        "score": 0.6032,
+        "chunk_id": "local_outage_check_chunk_06",
+        "doc_id": "local_outage_check",
+        "text": "## Suggested Reply\nI’m checking whether there is a local outage currently affecting your area. If there is an ongoing incident, I’ll share the available status with you. If no outage is detected, I’ll continue with technical troubleshooting to identify the next step."
+      }
+    ],
+    "lora_feedback_reply": "I've tried restarting multiple times, but it's still down. The next step is to open a technical intervention request so the problem can be investigated further.",
+    "lora_feedback_bertscore_precision": 0.8883,
+    "lora_feedback_bertscore_recall": 0.8717,
+    "lora_feedback_bertscore_f1": 0.8799
+  },
+  {
+    "conversation_id": "wifi_instability_014",
+    "scenario": "wifi_instability",
+    "reference_reply": "I'll need to investigate further to understand if there are any issues with your router placement or if there are physical obstructions blocking the signal.",
+    "baseline_reply": "I'm not sure if it's a problem with your Wi-Fi or the whole connection. I've noticed that in some rooms, the signal is almost non-existent.",
+    "retrieval_reply": "I'm having some issues with my home Wi-Fi. Sometimes the signal drops or doesn't work at all. If it is limited to Wi-Fi, we can first review router placement and restart the equipment before moving to a deeper technical check.",
+    "lora_reply": "I'd like to see if there is a problem with the signal in the room. If so, I'd like to see if there is a problem with the signal.",
+    "baseline_bertscore_precision": 0.8927,
+    "baseline_bertscore_recall": 0.8898,
+    "baseline_bertscore_f1": 0.8913,
+    "retrieval_bertscore_precision": 0.8734,
+    "retrieval_bertscore_recall": 0.8872,
+    "retrieval_bertscore_f1": 0.8802,
+    "lora_bertscore_precision": 0.901,
+    "lora_bertscore_recall": 0.8803,
+    "lora_bertscore_f1": 0.8905,
+    "best_methods": [
+      "lora_feedback"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.7519,
+        "chunk_id": "wifi_instability_chunk_02",
+        "doc_id": "wifi_instability",
+        "text": "## Symptoms\n- Wi-Fi disconnects frequently\n- Some rooms have weak signal\n- Connection works on one device but fails on another\n- Service may be stable on wired connection but unstable on Wi-Fi"
+      },
+      {
+        "rank": 2,
+        "score": 0.7284,
+        "chunk_id": "wifi_instability_chunk_03",
+        "doc_id": "wifi_instability",
+        "text": "## Diagnosis\n1. Ask whether the issue affects Wi-Fi only or also wired devices.\n2. Check whether the instability happens in all rooms or only in certain areas.\n3. Ask where the router is located and whether there are obstacles nearby.\n4. Confirm whether the router was recently restarted."
+      },
+      {
+        "rank": 3,
+        "score": 0.7125,
+        "chunk_id": "wifi_instability_chunk_06",
+        "doc_id": "wifi_instability",
+        "text": "## Suggested Reply\nI’d like to check whether the instability affects only Wi-Fi or the whole connection. If it is limited to Wi-Fi, we can first review router placement and restart the equipment before moving to a deeper technical check."
+      }
+    ],
+    "lora_feedback_reply": "I'd like to see if there is a problem with the signal in some rooms. If it is limited to Wi-Fi, we can first review router placement and restart the equipment before moving to a deeper technical check.",
+    "lora_feedback_bertscore_precision": 0.8918,
+    "lora_feedback_bertscore_recall": 0.9126,
+    "lora_feedback_bertscore_f1": 0.9021
+  },
+  {
+    "conversation_id": "wifi_instability_015",
+    "scenario": "wifi_instability",
+    "reference_reply": "We will need to investigate further to determine whether there's an issue with your specific network or a broader service outage.",
+    "baseline_reply": "I'm not sure if it's just Wi-Fi or the whole connection. I'm not sure if it's just the router.",
+    "retrieval_reply": "I'm having some issues with my home WiFi. It keeps dropping and connecting all over the place - sometimes it works on one device but not another. If it is limited to Wi-Fi, guide the customer through router placement and reboot checks.",
+    "lora_reply": "I'd like to see if there is a problem with the connection between the router and the router.",
+    "baseline_bertscore_precision": 0.8838,
+    "baseline_bertscore_recall": 0.8809,
+    "baseline_bertscore_f1": 0.8823,
+    "retrieval_bertscore_precision": 0.8442,
+    "retrieval_bertscore_recall": 0.8545,
+    "retrieval_bertscore_f1": 0.8493,
+    "lora_bertscore_precision": 0.8993,
+    "lora_bertscore_recall": 0.8778,
+    "lora_bertscore_f1": 0.8885,
+    "best_methods": [
+      "lora"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "score": 0.7542,
+        "chunk_id": "wifi_instability_chunk_06",
+        "doc_id": "wifi_instability",
+        "text": "## Suggested Reply\nI’d like to check whether the instability affects only Wi-Fi or the whole connection. If it is limited to Wi-Fi, we can first review router placement and restart the equipment before moving to a deeper technical check."
+      },
+      {
+        "rank": 2,
+        "score": 0.7349,
+        "chunk_id": "wifi_instability_chunk_03",
+        "doc_id": "wifi_instability",
+        "text": "## Diagnosis\n1. Ask whether the issue affects Wi-Fi only or also wired devices.\n2. Check whether the instability happens in all rooms or only in certain areas.\n3. Ask where the router is located and whether there are obstacles nearby.\n4. Confirm whether the router was recently restarted."
+      },
+      {
+        "rank": 3,
+        "score": 0.7208,
+        "chunk_id": "wifi_instability_chunk_04",
+        "doc_id": "wifi_instability",
+        "text": "## Recommended Agent Action\n- Distinguish Wi-Fi instability from a wider service outage.\n- If the issue is limited to Wi-Fi, guide the customer through router placement and reboot checks.\n- If the issue affects all connection types, continue with outage and line diagnosis."
+      }
+    ],
+    "lora_feedback_reply": "I'd like to see if there is a problem with the connection between the router and the router. If it is limited to Wi-Fi, we can first review router placement and restart the equipment before moving to a deeper technical check.",
+    "lora_feedback_bertscore_precision": 0.8691,
+    "lora_feedback_bertscore_recall": 0.8828,
+    "lora_feedback_bertscore_f1": 0.8759
+  }
+]

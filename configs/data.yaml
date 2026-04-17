@@ -1,0 +1,40 @@
+seed: 42
+language: en
+
+splits:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+
+datasets:
+  banking77:
+    enabled: true
+    source_type: huggingface
+    hf_name: PolyAI/banking77
+    revision: refs/convert/parquet
+    role: intent_bootstrap
+    task_support:
+      - intent_classification
+
+  tweetsum:
+    enabled: true
+    source_type: external
+    role: summary_core
+    task_support:
+      - summarization
+      - conversation_modeling
+    local_paths:
+      train_file: data/raw/tweetsum/train.jsonl
+      valid_file: data/raw/tweetsum/valid.jsonl
+      test_file: data/raw/tweetsum/test.jsonl
+      processor_file: data/raw/tweetsum/tweet_sum_processor.py
+      twcs_file: data/raw/tweetsum/twcs.csv
+
+  customer_support_tweets:
+    enabled: true
+    source_type: huggingface
+    hf_name: MohammadOthman/mo-customer-support-tweets-945k
+    role: noise_pool
+    task_support:
+      - noise_analysis
+      - robustness
