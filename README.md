@@ -1,16 +1,28 @@
-# SupportCopilot-LLM
+# SupportCopilot
 
-Sprint 1 sets up the data foundation for a technical support copilot project focused on three future tasks:
+Technical-support copilot project combining NLP experimentation, microservices, a user interface, Docker deployment, and basic CI/CD.
+
+The system is designed around three core tasks:
 
 - intent classification
-- structured ticket summarization
-- agent reply suggestion
+- conversation summarization
+- next-reply suggestion
 
-The current repository already covers dataset download checks, raw dataset inspection, conversion to a unified schema, and interim-data validation.
+The final project includes:
+
+- an end-to-end SupportCopilot pipeline with critics and fallback logic
+- a microservices architecture with a gateway and three downstream services
+- a Streamlit UI connected only to the gateway
+- Docker-based local deployment
+- GitHub Actions CI with smoke tests
+
+Suggested GitHub repository description:
+
+> Technical-support copilot with NLP pipeline, microservices, Streamlit UI, Docker, and GitHub Actions CI.
 
 ## Current Scope
 
-The repository now has two main layers:
+The repository is organized around two complementary layers:
 
 - `src/experiments`: baselines, fine-tuning, evaluation, and synthetic-data experiments
 - `src/copilot`: the integrated SupportCopilot pipeline, critics, retrieval, and feedback loop
@@ -729,6 +741,239 @@ Sprint 6 is considered complete with:
 - scripts to build retraining candidates and augmented training sets
 - incremental feedback-guided LoRA retraining for reply generation
 - a measurable improvement over the previous best reply-generation model
+
+## Sprint 7 Results
+
+### Microservices API Layer
+
+Sprint 7 moved the project from a single integrated pipeline toward a service-oriented architecture. The SupportCopilot workflow is now exposed through:
+
+- `gateway-service`
+- `intent-service`
+- `summary-service`
+- `reply-service`
+
+The gateway acts as the only public orchestration layer. It receives a conversation, propagates `X-Request-ID`, calls the three downstream services synchronously over HTTP, and returns one unified response.
+
+The main technical outcomes of Sprint 7 were:
+
+- a dedicated FastAPI gateway for the public API
+- three downstream task-specific microservices
+- shared schemas, config, logging, and request-id helpers under `shared/`
+- health endpoints and interactive docs for every service
+- structured error responses across the architecture
+- a Docker-based local deployment of the four-service stack
+
+Sprint 7 interpretation:
+
+> The project evolved from a research-oriented pipeline into a distributed application architecture. This sprint validated that the three NLP tasks can run as separate services coordinated by a gateway, with clear contracts and production-style API behavior.
+
+### Sprint 7 Reproduction
+
+Run the services individually:
+
+```powershell
+.\scripts\run_api.ps1 -ServiceMode
+.\scripts\run_intent_service.ps1
+.\scripts\run_summary_service.ps1
+.\scripts\run_reply_service.ps1
+```
+
+Or run the full distributed stack with Docker:
+
+```powershell
+make docker-up
+```
+
+### Sprint 7 Status
+
+Sprint 7 is considered complete with:
+
+- a gateway-service exposing the public SupportCopilot API
+- a dedicated intent-service
+- a dedicated summary-service
+- a dedicated reply-service
+- shared request/response contracts across services
+- local Docker deployment for the distributed architecture
+
+## Sprint 8 Results
+
+### User Interface Layer
+
+Sprint 8 introduced the first user-facing interface for the project through Streamlit.
+
+The UI was designed to stay aligned with the service architecture:
+
+- it talks only to `gateway-service`
+- it does not call downstream services directly
+- it exposes a production-style input flow with hidden internal identifiers
+- it surfaces critics and fallbacks in a technical panel
+
+The main UI outcomes were:
+
+- a structured conversation editor for `customer` and `agent` messages
+- a gateway health check in the sidebar
+- a main result panel for intent, summary, and suggested reply
+- a technical debug panel for raw outputs, critic reviews, and fallback usage
+- advanced options for optional debugging fields such as scenario override
+
+Sprint 8 interpretation:
+
+> The project is no longer just a collection of models and scripts. With the UI layer, SupportCopilot became demonstrable as an actual application, while still preserving enough technical visibility for debugging, evaluation, and interviews.
+
+### Sprint 8 Reproduction
+
+Run the gateway and launch the UI:
+
+```powershell
+.\scripts\run_api.ps1 -ServiceMode
+.\scripts\run_ui.ps1
+```
+
+Or:
+
+```powershell
+make api-service
+make ui
+```
+
+### Sprint 8 Status
+
+Sprint 8 is considered complete with:
+
+- a Streamlit UI connected only to the gateway-service
+- production-style conversation input
+- a result panel for the three main outputs
+- technical visibility into critics and fallback behavior
+- a UI launch script and Makefile shortcut
+
+## Sprint 9 Results
+
+### Minimal CI/CD and Technical Closure
+
+Sprint 9 focused on making the repository easier to validate automatically and safer to evolve.
+
+The CI/CD layer introduced in this sprint includes:
+
+- a GitHub Actions workflow triggered on push, pull request, and manual dispatch
+- dependency installation in CI
+- Python compilation checks
+- local and CI smoke tests for imports, root endpoints, health endpoints, and `X-Request-ID`
+- Docker Compose configuration validation
+
+The main outcome is not a cloud deployment yet, but a first automated quality gate for the repository.
+
+Sprint 9 interpretation:
+
+> The project can now verify its own technical baseline automatically. This reduces manual checking, makes regressions easier to catch, and moves the repository closer to professional engineering practice.
+
+### Sprint 9 Reproduction
+
+Run the local smoke tests:
+
+```powershell
+make smoke
+```
+
+The GitHub Actions workflow will run automatically on push and pull request:
+
+- `.github/workflows/ci.yml`
+
+### Sprint 9 Status
+
+Sprint 9 is considered complete with:
+
+- a minimal GitHub Actions CI workflow
+- smoke tests for service imports and metadata endpoints
+- local smoke-test execution through `make smoke`
+- Docker Compose validation in CI
+- updated documentation for the technical validation workflow
+
+## Sprint 10 Results
+
+### Architecture Overview
+
+The final system combines experimentation assets and an application-oriented delivery layer.
+
+At the NLP and model level, the project includes:
+
+- intent classification for synthetic support conversations
+- support-oriented summarization
+- next-reply generation
+- critics for intent, summary, and reply
+- fallback behavior for low-quality outputs
+- offline feedback memory and retraining utilities
+
+At the application level, the project includes:
+
+- a `gateway-service` as the public API
+- three downstream microservices:
+  - `intent-service`
+  - `summary-service`
+  - `reply-service`
+- a Streamlit UI connected only to the gateway
+- Docker-based local deployment
+- GitHub Actions CI for technical validation
+
+The final execution flow is:
+
+1. a user enters a conversation in the UI or sends it to the gateway API
+2. the gateway forwards the request to the three downstream services
+3. each service produces its task output and applies its critic logic
+4. the gateway aggregates the outputs into one unified response
+5. failures can later feed the offline improvement loop
+
+### Results Overview
+
+Across the project, the strongest results were obtained when the system was aligned with the synthetic support domain and improved through critic-guided iteration.
+
+The most important final outcomes are:
+
+- an end-to-end SupportCopilot pipeline for the technical-support domain
+- a distributed microservices version of that pipeline
+- a user-facing interface for demonstration and interaction
+- a critic-driven offline improvement loop
+- measurable gains for reply generation after feedback retraining
+
+Best observed reply-generation comparison:
+
+| Method | BERTScore F1 |
+|---|---:|
+| Baseline T5 | 0.8615 |
+| Retrieval + T5 | 0.8580 |
+| LoRA T5 | 0.8626 |
+| Feedback-LoRA T5 | 0.8712 |
+
+Summary generation also improved once training, feedback, and evaluation were aligned to the same support-domain data rather than a mismatched summarization benchmark.
+
+### Limitations
+
+Even in its final state, the project still has clear limitations:
+
+- the support benchmark is synthetic and not a substitute for real production conversations
+- reply quality still depends on critic and fallback protection in difficult cases
+- the current CI pipeline validates technical health, but not full end-to-end model quality
+- Docker deployment is local and development-oriented, not a cloud deployment
+- the application does not yet include authentication, persistent storage, or production monitoring
+- critics are rule-based and lightweight rather than LLM-based evaluators
+- the project demonstrates a microservices architecture, but not horizontal scaling or cloud-managed deployment yet
+
+### Future Work
+
+The most natural directions for extending the project are:
+
+- evaluate the system on less synthetic or real support conversations
+- extend the offline feedback loop more systematically to intent and summary retraining
+- add cloud deployment targets such as Azure App Service, Container Apps, or Functions where appropriate
+- publish Docker images and extend CI toward real CD
+- improve observability with centralized logging and tracing
+- add authentication and persistence for a more realistic internal-tool setup
+- refine the UI into a more chat-like support workflow
+- experiment with stronger generation models or more advanced critics
+
+Sprint 10 interpretation:
+
+> The project is now complete as both an NLP experimentation platform and a small application architecture. It demonstrates data preparation, modeling, evaluation, service decomposition, UI integration, Dockerization, and CI in one coherent portfolio project.
 
 ## Notes
 
