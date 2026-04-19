@@ -1,0 +1,110 @@
+services:
+  gateway-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supportcopilot-gateway
+    command: ["python", "-m", "uvicorn", "services.gateway_service.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      GATEWAY_USE_EMBEDDED_MODE: "false"
+      GATEWAY_HOST: "0.0.0.0"
+      GATEWAY_PORT: "8000"
+      INTENT_SERVICE_URL: "http://intent-service:8001"
+      SUMMARY_SERVICE_URL: "http://summary-service:8002"
+      REPLY_SERVICE_URL: "http://reply-service:8003"
+      INTENT_SERVICE_TIMEOUT_SECONDS: "10"
+      SUMMARY_SERVICE_TIMEOUT_SECONDS: "45"
+      REPLY_SERVICE_TIMEOUT_SECONDS: "45"
+      LOG_LEVEL: "INFO"
+      ENABLE_FEEDBACK_PERSISTENCE: "false"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ${USERPROFILE}/.cache/huggingface:/root/.cache/huggingface
+    depends_on:
+      - intent-service
+      - summary-service
+      - reply-service
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health').read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+  intent-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supportcopilot-intent
+    command: ["python", "-m", "uvicorn", "services.intent_service.app.main:app", "--host", "0.0.0.0", "--port", "8001"]
+    environment:
+      INTENT_SERVICE_HOST: "0.0.0.0"
+      INTENT_SERVICE_PORT: "8001"
+      INTENT_MODEL_PATH: "/app/outputs/experiments/intent/synthetic_embedding/intent_synthetic_model.joblib"
+      LOG_LEVEL: "INFO"
+      ENABLE_FEEDBACK_PERSISTENCE: "false"
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ${USERPROFILE}/.cache/huggingface:/root/.cache/huggingface
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/api/v1/health').read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+  summary-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supportcopilot-summary
+    command: ["python", "-m", "uvicorn", "services.summary_service.app.main:app", "--host", "0.0.0.0", "--port", "8002"]
+    environment:
+      SUMMARY_SERVICE_HOST: "0.0.0.0"
+      SUMMARY_SERVICE_PORT: "8002"
+      SUMMARY_MODEL_PATH: "/app/outputs/experiments/summary/lora_base/final_model"
+      LOG_LEVEL: "INFO"
+      ENABLE_FEEDBACK_PERSISTENCE: "false"
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ${USERPROFILE}/.cache/huggingface:/root/.cache/huggingface
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8002/api/v1/health').read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+  reply-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supportcopilot-reply
+    command: ["python", "-m", "uvicorn", "services.reply_service.app.main:app", "--host", "0.0.0.0", "--port", "8003"]
+    environment:
+      REPLY_SERVICE_HOST: "0.0.0.0"
+      REPLY_SERVICE_PORT: "8003"
+      REPLY_MODEL_PATH: "/app/outputs/experiments/reply/lora_base/final_model"
+      LOG_LEVEL: "INFO"
+      ENABLE_FEEDBACK_PERSISTENCE: "false"
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ${USERPROFILE}/.cache/huggingface:/root/.cache/huggingface
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8003/api/v1/health').read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s

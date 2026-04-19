@@ -65,6 +65,17 @@ src/
     llm/
   schemas/
   utils/
+services/
+  gateway_service/
+  intent_service/
+  summary_service/
+  reply_service/
+shared/
+  config/
+  schemas/
+  logging/
+  utils/
+ui/
 ```
 
 ## Environment Setup
@@ -85,6 +96,18 @@ Prepare the main pipeline artifacts:
 
 ```powershell
 .\scripts\prepare_support_copilot.ps1
+```
+
+Launch the FastAPI service:
+
+```powershell
+.\scripts\run_api.ps1
+```
+
+Launch the Streamlit UI:
+
+```powershell
+.\scripts\run_ui.ps1
 ```
 
 Run the integrated copilot pipeline with critics:
@@ -113,6 +136,7 @@ If you have `make` available, the repository root also provides a small `Makefil
 
 ```powershell
 make prepare
+make api
 make pipeline-reset
 make feedback-all
 make eval-all
@@ -121,9 +145,176 @@ make eval-all
 Useful variants:
 
 ```powershell
+make api-reload
+make ui
+make smoke
 make pipeline-one CONVERSATION_ID=billing_vs_technical_routing_014
 make pipeline-reset LIMIT=20
 make eval-all OUTPUT=outputs/experiments/my_overview.json
+```
+
+## FastAPI Service
+
+Sprint 7 introduces the first API layer of the microservices transition through the `gateway-service`.
+
+Run it locally with:
+
+```powershell
+.\scripts\run_api.ps1
+```
+
+or:
+
+```powershell
+make api
+```
+
+Available endpoints:
+
+- `GET /`
+- `GET /api/v1/health`
+- `POST /api/v1/copilot/run`
+- `POST /api/v1/copilot/run/batch`
+
+Interactive documentation is available at:
+
+- `http://127.0.0.1:8000/docs`
+
+Example request body for `POST /api/v1/copilot/run`:
+
+```json
+{
+  "conversation_id": "demo_001",
+  "scenario": "billing_vs_technical_routing",
+  "persist_feedback": false,
+  "messages": [
+    {
+      "speaker": "customer",
+      "text": "My internet keeps freezing and I am not sure if this should go to billing or technical support."
+    },
+    {
+      "speaker": "agent",
+      "text": "I can help you figure that out. Can you tell me more about the service issue?"
+    }
+  ]
+}
+```
+
+## Microservices Transition
+
+The repository now also contains the first step of the microservices transition:
+
+- `services/gateway_service`: current public entrypoint
+- `services/intent_service`: implemented intent microservice
+- `services/summary_service`: implemented summary microservice
+- `services/reply_service`: implemented reply microservice
+- `shared/`: shared config, schemas, logging, and utility helpers
+
+At this stage, `gateway-service` runs in an embedded compatibility mode while the three downstream services are still being separated.
+
+You can run the intent microservice independently with:
+
+```powershell
+.\scripts\run_intent_service.ps1
+```
+
+You can run the summary microservice independently with:
+
+```powershell
+.\scripts\run_summary_service.ps1
+```
+
+You can run the reply microservice independently with:
+
+```powershell
+.\scripts\run_reply_service.ps1
+```
+
+## Docker Deployment
+
+The repository now includes a Docker-based local deployment for the full microservices stack.
+
+Build and run all services with:
+
+```powershell
+make docker-up
+```
+
+This starts:
+
+- `gateway-service`
+- `intent-service`
+- `summary-service`
+- `reply-service`
+
+The compose setup mounts local artifacts from:
+
+- `data/`
+- `outputs/`
+
+This means:
+
+- model artifacts must already exist locally in `outputs/experiments`
+- KB files must already exist in `data/kb`
+
+Useful commands:
+
+```powershell
+make docker-build
+make docker-down
+make docker-logs
+```
+
+## Streamlit UI
+
+Sprint 8 adds a first user interface layer with Streamlit.
+
+The UI talks only to `gateway-service`, which means it does not call downstream microservices directly.
+
+Run it with:
+
+```powershell
+.\scripts\run_ui.ps1
+```
+
+or:
+
+```powershell
+make ui
+```
+
+Default access point:
+
+- `http://127.0.0.1:8501`
+
+The UI provides:
+
+- production-style conversation input
+- hidden auto-generated conversation identifier
+- optional advanced scenario override for debugging
+- gateway health check
+- final intent, summary, and reply display
+- critic and fallback visibility for technical demos
+
+## CI/CD
+
+Sprint 9 adds a minimal CI/CD layer with GitHub Actions.
+
+The workflow currently performs:
+
+- dependency installation
+- Python source compilation
+- import and API smoke tests
+- Docker Compose configuration validation
+
+The workflow file is located in:
+
+- `.github/workflows/ci.yml`
+
+You can also run the local smoke checks with:
+
+```powershell
+make smoke
 ```
 
 ## Dataset Setup
